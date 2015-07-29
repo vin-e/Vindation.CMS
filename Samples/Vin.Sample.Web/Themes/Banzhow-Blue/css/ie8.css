@@ -1,0 +1,11 @@
+.carousel-caption .button:hover{
+  background: transparent;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#21FFFFFF,endColorstr=#21FFFFFF)"; /* IE8 */
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#21FFFFFF,endColorstr=#21FFFFFF);   /* IE6 & 7 */
+        zoom: 1;
+}
+
+.link-portfolio .overlay-portfolio {
+  background: #000;
+  cursor: pointer;
+}

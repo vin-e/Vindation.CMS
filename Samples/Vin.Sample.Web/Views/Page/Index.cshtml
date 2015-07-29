@@ -1,0 +1,32 @@
+﻿@model Vin.Sample.Web.Models.PageViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="section-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">@Model.Title</h1>
+            </div>
+        </div>
+    </div> <!-- /.container -->
+</div> <!-- /.section-colored -->
+
+<div class="container container-int">
+    @{Html.RenderAction("RenderShareBar", "Cms");}
+
+    <ol class="breadcrumb">
+        <!-- TODO: Build breadcrumb -->
+        <li><a href="/">Home</a></li>
+        <li class="active">@Model.Title</li>
+    </ol>
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            @Html.Raw(Model.HtmlBody)
+        </div>
+    </div>
+</div><!-- /.container -->
+

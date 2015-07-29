@@ -1,0 +1,73 @@
+﻿@model Vin.Sample.Data.Model.Settings.CompanySettings
+@{
+    ViewBag.Title = "Company";
+}
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="well">
+            <div class="header">
+                Company Information
+            </div>
+            <form id="settingSave" method="post" class="form-horizontal" role="form" a>
+                <div class="form-group">
+                    <label>Name</label>
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Name of your Organization" })
+                </div>
+
+                <div class="form-group">
+                    <label>E-Mail</label>
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Email Address" })
+                </div>
+
+                <div class="form-group">
+                    <label>Address</label>
+                    @Html.TextBoxFor(x => x.Address, new { @class = "form-control", placeholder = "Mailing Address" })
+                </div>
+
+                <div class="form-group">
+                    <label>City</label>
+                    @Html.TextBoxFor(x => x.City, new { @class = "form-control", placeholder = "Mailing City" })
+                </div>
+
+                <div class="form-group">
+                    <label>State</label>
+                    @Html.TextBoxFor(x => x.State, new { @class = "form-control", placeholder = "Mailing State" })
+                </div>
+
+                <div class="form-group">
+                    <label>Zip Code</label>
+                    @Html.TextBoxFor(x => x.ZipCode, new { @class = "form-control", placeholder = "Mailing Zip Code" })
+                </div>
+
+                <div class="form-group">
+                    <label>Phone</label>
+                    @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", placeholder = "Phone Number" })
+                </div>
+
+                <div class="form-group">
+                    <label>EIN</label>
+                    @Html.TextBoxFor(x => x.Ein, new { @class = "form-control", placeholder = "EIN Number" })
+                </div>
+
+                <div class="form-group">
+                    <label>Brief Description</label>
+                    @Html.TextAreaFor(x => x.Brief, new { @class = "form-control", placeholder = "Brief Organization Description" })
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <button class="btn btn-default btn-block" type="reset"><i class="fa fa-times"></i> Cancel</button>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-check"></i> Save</button>
+                </div>
+            </form>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        settingsInit();
+    </script>
+}

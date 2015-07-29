@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Vin.Sample.Web.Models.MenuItemViewModel>
+
+@if (Model.Count() > 0)
+{
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav navbar-right">
+            @foreach (var menuItem in Model)
+            {
+                
+                if (menuItem.Items == null || menuItem.Items.Count() == 0)
+                {
+                    <li><a href="@menuItem.PermaLink">@menuItem.Name</a></li>
+                }
+                else
+                {
+                    var target = menuItem.PermaLink;//menuItem.PermaLink.StartsWith("/") ? menuItem.PermaLink.Remove(0, 1) : menuItem.PermaLink;
+                    <li class="dropdown">
+                        <a href="@menuItem.PermaLink" class="dropdown-toggle" data-target="@target" data-toggle="dropdown" data-hover="dropdown">@menuItem.Name<i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            @foreach (var subItem in menuItem.Items)
+                            {
+                                <li><a href="@subItem.PermaLink">@subItem.Name</a></li>
+                            }
+                        </ul>
+                    </li>
+                }
+            }
+        </ul>
+    </div><!-- /.navbar-collapse -->
+}

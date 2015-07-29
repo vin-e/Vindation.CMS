@@ -1,0 +1,151 @@
+﻿@model Vin.Sample.Web.Models.SettingsViewModel
+
+<footer>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <a class="footer-brand" href="/">@Model.Company.Name</a>
+                <p>@Model.Company.Brief</p>
+                <ul class="list-inline list-unstyled social-networks">
+                    @if (!string.IsNullOrEmpty(Model.Social.Facebook))
+                    {
+                        <li>
+                            <a href="@Model.Social.Facebook" rel="nofollow" target="_blank">
+                                <div class="icon-social icon-social-facebook normal">
+                                    <i class="fa fa-facebook"></i>
+                                </div>
+                                <div class="icon-social hover">
+                                    <i class="fa fa-facebook"></i>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                    
+                    @if (!string.IsNullOrEmpty(Model.Social.Twitter))
+                    {
+                        <li>
+                            <a href="@Model.Social.Twitter" rel="nofollow" target="_blank">
+                                <div class="icon-social icon-social-twitter normal">
+                                    <i class="fa fa-twitter"></i>
+                                </div>
+                                <div class="icon-social hover">
+                                    <i class="fa fa-twitter"></i>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                    
+                    @if (!string.IsNullOrEmpty(Model.Social.GooglePlus))
+                    {
+                        <li>
+                            <a href="@Model.Social.GooglePlus" rel="nofollow" target="_blank">
+                                <div class="icon-social icon-social-google-plus normal">
+                                    <i class="fa fa-google-plus"></i>
+                                </div>
+                                <div class="icon-social hover">
+                                    <i class="fa fa-google-plus"></i>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                    
+                    @if (!string.IsNullOrEmpty(Model.Social.YouTube))
+                    {
+                        <li>
+                            <a href="@Model.Social.YouTube" rel="nofollow" target="_blank">
+                                <div class="icon-social icon-social-youtube normal">
+                                    <i class="fa fa-youtube-play"></i>
+                                </div>
+                                <div class="icon-social hover">
+                                    <i class="fa fa-youtube-play"></i>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                    
+                    @if (!string.IsNullOrEmpty(Model.Social.LinkedIn))
+                    {
+                        <li>
+                            <a href="@Model.Social.LinkedIn" rel="nofollow" target="_blank">
+                                <div class="icon-social icon-social-linkedin normal">
+                                    <i class="fa fa-linkedin"></i>
+                                </div>
+                                <div class="icon-social hover">
+                                    <i class="fa fa-linkedin"></i>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                    
+                    @if (!string.IsNullOrEmpty(Model.Social.Pinterest))
+                    {
+                        <li>
+                            <a href="@Model.Social.Pinterest" rel="nofollow" target="_blank">
+                                <div class="icon-social icon-social-pinterest normal">
+                                    <i class="fa fa-pinterest"></i>
+                                </div>
+                                <div class="icon-social hover">
+                                    <i class="fa fa-pinterest"></i>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <h3>CONTACT</h3>
+                <address>
+                    @if (!string.IsNullOrEmpty(Model.Company.Address) || !string.IsNullOrEmpty(Model.Company.City)) 
+                    {
+                        <i class="fa fa-map-marker"></i> <text>@Model.Company.Address</text> if(!string.IsNullOrEmpty(Model.Company.Address)) {<br />} <text>@Model.Company.City, @Model.Company.State, @Model.Company.ZipCode</text><br>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.Company.Phone)) {<i class="fa fa-phone"></i> @Model.Company.Phone<br>}
+                    @if (!string.IsNullOrEmpty(Model.Company.Email)) {<i class="fa fa-envelope"></i> @Model.Company.Email}
+                </address>
+            </div>
+
+            <div class="col-lg-3 col-md-3">
+                @if (Model.Site.EnableTwitterFeed && !string.IsNullOrEmpty(Model.Social.Twitter))
+                {
+                    var twitterID = Model.Social.Twitter.Split('/').Last();
+                    
+                    <h3>LATEST TWEETS</h3>
+
+    <a class="twitter-timeline" href="@Model.Social.Twitter" data-widget-id="469269250020892673" data-chrome="nofooter transparent" style="height:300px" data-screen-name="@twitterID" data-tweet-limit="3">Tweets by &#64;@twitterID</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+                }
+            </div>
+
+            <div class="col-lg-3 col-md-3">
+                @if (Model.Site.EnableNewsletter)
+                {
+                    <h3>NEWSLETTER</h3>
+                    <div id="newsletterForm">
+                        <p>Type your email address below and subscribe to our newsletter</p>
+                        <div id="newsletterMessage"></div>
+                        <div class="input-group">
+                            <input id="newsletterEmail" type="text" placeholder="Email" class="form-control">
+                            <span class="input-group-btn">
+                                <button id="newsletterSubmit" class="btn btn-primary" type="button">Go!</button>
+                            </span>
+
+                        </div><!-- /input-group -->
+                    </div>
+                }
+            </div>
+        </div><!-- /.row -->
+
+    </div><!-- /.container -->
+</footer>
+
+<div class="footer-after">
+    <div class="container">
+        <div class="row">
+            <p class="col-md-10">©@DateTime.Now.Year All rights reserved.</p>
+            <p class="col-md-2 legal"><a href="#" rel="nofollow">Legal Notice</a></p>
+        </div><!-- /.row -->
+    </div>
+</div>

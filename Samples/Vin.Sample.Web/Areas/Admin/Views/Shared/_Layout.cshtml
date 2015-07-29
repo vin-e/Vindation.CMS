@@ -1,0 +1,156 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Brite Reach Dashboard</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <link href="~/Content/admin/bootstrap.css" type="text/css" rel="stylesheet">
+    <link href="~/Content/admin/messenger.css" rel="stylesheet">
+    <link href="~/Content/admin/messenger-theme-ice.css" rel="stylesheet">
+    <link href="~/Content/admin/messenger-spinner.css" rel="stylesheet">
+    <link href="~/Content/admin/styles.css" rel="stylesheet">
+    <link href="~/Content/admin/leftmenu.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+       <script src="~/Scripts/admin/html5shiv.js"></script>
+       <script src="~/Scripts/admin/respond.min.js"></script>
+    <![endif]-->
+    @RenderSection("Head", required: false)
+</head>
+<body>
+    <nav class="sidenav left" role="navigation">
+        <ul class="menu">
+            <li class="user">
+                <div class="search-block">
+                    <input type="text" class="search">
+                    <span>Search <i class="fa fa-search"></i></span>
+                </div>
+                <div class="content">
+                    @*<img class="img-circle" height="54" src="/assets/img/user.jpg" alt="">*@
+                    <p>
+                        Profile Info
+                        <br />
+                        <small>Lorem ipsum dolor sit amet</small>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <a href="/Admin">
+                    Dashboard
+                    <div>
+                        <img src="~/assets/img/icons/dashboard.png" alt="">
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a>
+                    Pages
+                    <div>
+                        <img src="~/assets/img/icons/documents.png" alt="">
+                    </div>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a class="back"><i class="fa fa-angle-left"></i> Back</a></li>
+                    <li><a href="~/Admin/Pages">List</a></li>
+                    <li><a href="~/Admin/Pages/Create">Create a new page</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <a>
+                    Blog Posts
+                    <div>
+                        <img src="~/assets/img/icons/layers.png" alt="">
+                    </div>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a class="back"><i class="fa fa-angle-left"></i> Back</a></li>
+                    <li><a href="~/Admin/Posts">List</a></li>
+                    <li><a href="~/Admin/Posts/Create">Create a new post</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a>
+                    Events
+                    <div>
+                        <img src="~/assets/img/icons/calendar.png" alt="">
+                    </div>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a class="back"><i class="fa fa-angle-left"></i> Back</a></li>
+                    <li><a href="~/Admin/Events">List</a></li>
+                    <li><a href="~/Admin/Events/Create">Create a new events</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a>
+                    Marketing
+                    <div>
+                        <img src="~/assets/img/icons/bubbles.png" alt="">
+                    </div>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a class="back"><i class="fa fa-angle-left"></i> Back</a></li>
+                    <li><a href="~/Admin/Marketing/Newsletter">Newsletter list</a></li>
+                    <li><a href="~/Admin/Marketing/Leads">Contact form requests</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a>
+                    Settings
+                    <div>
+                        <img src="~/assets/img/icons/cog.png" alt="">
+                    </div>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a class="back"><i class="fa fa-angle-left"></i> Back</a></li>
+                    <li><a href="~/Admin/Settings/CallToAction">Call To Action Links</a></li>
+                    <li><a href="~/Admin/Settings/Company">Company</a></li>
+                    <li><a href="~/Admin/Settings/Site">Site</a></li>
+                    <li><a href="~/Admin/Settings/Social">Social</a></li>
+                    <li><a href="~/Admin/Settings/Theme">Themes</a></li>
+                </ul>
+            </li>
+            
+            <li class="logout">
+                <a href="#">
+                    Logout
+                    <div>
+                        <img src="~/assets/img/icons/off.png" alt="">
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="overlay"></div>
+    <div class="controlshint"><img src="~/assets/img/swipe.png" alt="Menu Help"></div>
+    <section class="wrap">
+        <div class="container">
+            @*<ol class="breadcrumb">
+                <li><a href="/Admin">Index</a></li>
+                <li class="pull-right"><a href="/Admin" class="text-muted"><i class="fa fa-refresh"></i></a></li>
+            </ol>*@
+            
+            @RenderBody()
+
+            <footer class="text-center">&copy Brite Reach @DateTime.Now.Year</footer>
+        </div>
+    </section>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">$(document).bind("mobileinit", function(){$.extend(  $.mobile , {autoInitializePage: false})});</script>
+    <script src="//code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+    <script src="~/Scripts/admin/bootstrap.min.js"></script>
+    <script src="~/Scripts/admin/messenger.min.js"></script>
+    <script src="~/Scripts/admin/leftmenu.js"></script>
+    <script src="~/Scripts/admin/theme.js"></script>
+    <script src="~/Scripts/admin/script.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

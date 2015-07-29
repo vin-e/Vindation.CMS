@@ -1,0 +1,81 @@
+﻿@model Vin.Sample.Data.Model.Settings.CompanySettings
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript">
+    var myLatlng;
+    var map;
+    var marker;
+    var address = '@Model.Address, @Model.City, @Model.State, @Model.ZipCode';
+
+    function initialize() {
+        geocoder = new google.maps.Geocoder();
+        if (address != '') {
+            geocoder.geocode({ 'address': address }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    myLatlng = results[0].geometry.location;
+
+                    var mapOptions = {
+                        zoom: 13,
+                        center: myLatlng,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP,
+                        scrollwheel: false,
+                        draggable: false
+                    };
+                    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+                    var contentString = '<p style="line-height: 20px;"><strong>@Model.Name</strong></p><p>' + address + '</p>';
+
+                    var infowindow = new google.maps.InfoWindow({
+                        content: contentString
+                    });
+
+                    marker = new google.maps.Marker({
+                        position: myLatlng,
+                        map: map,
+                        title: 'Marker'
+                    });
+
+                    google.maps.event.addListener(marker, 'click', function () {
+                        infowindow.open(map, marker);
+                    });
+                } else {
+                    $("#map-canvas").fadeOut();
+                }
+            });
+        } else {
+            $("#map-canvas").fadeOut();
+        }
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+<div id="map-canvas" class="carousel"></div>
+
+<div class="section">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-8">
+                <h3>Contact</h3>
+                <p>Thank you your information was sent.</p>
+
+            </div>
+
+            <div class="col-sm-4">
+                <h3>Address</h3>
+                <p>
+                    <i class="fa fa-map-marker"></i> <text>@Model.Address</text> @if (!string.IsNullOrEmpty(Model.Address))
+                    {<br />} <text>@Model.City, @Model.State, @Model.ZipCode</text>
+                </p>
+                <p><i class="fa fa-phone"></i> @Model.Phone</p>
+                <p><i class="fa fa-envelope"></i> <a href="mailto:@Model.Email">@Model.Email</a></p>
+                @*<p><i class="fa fa-clock-o"></i> Monday - Friday: 9:00 AM to 5:00 PM</p>*@
+            </div>
+
+        </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+</div><!-- /.section -->

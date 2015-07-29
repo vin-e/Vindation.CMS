@@ -1,0 +1,51 @@
+﻿@model Vin.Sample.Web.Areas.Admin.Models.ThemeSettingsViewModel
+@{
+    ViewBag.Title = "Theme";
+}
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="well">
+            <div class="header">
+                Theme Settings
+            </div>
+            @*<form id="settingSave" method="post" class="form-horizontal" role="form">
+
+            </form>*@
+            <div class="row">
+                <div class="selected">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="@Url.Content(Model.CurrentTheme.RelativePath + "/" + Model.CurrentTheme.PreviewImageUrl)" class="" width="100%" style="height:auto;" />
+                            <div class="caption">
+                                <h4>@Model.CurrentTheme.ThemeTitle</h4>
+                                <p>@Model.CurrentTheme.PreviewText</p>
+                                <p><button href="#" class="btn btn-default disabled" role="button">Active Theme</button></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="available">
+                    @{
+                        foreach (var theme in Model.ThemeConfigs)
+                        {
+                            <div class="col-sm-6 col-md-4">
+                                <div class="thumbnail">
+                                    <img src="@Url.Content(theme.RelativePath + "/" + theme.PreviewImageUrl)" class="" width="100%" style="height:auto; max-height: 186px;" />
+                                    <div class="caption">
+                                        <h4>@theme.ThemeTitle</h4>
+                                        <p>@theme.PreviewText</p>
+                                        <p><a href="@Url.Content("ApplyTheme/" + theme.ThemeName)" class="btn btn-primary" role="button">Activate This Theme</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

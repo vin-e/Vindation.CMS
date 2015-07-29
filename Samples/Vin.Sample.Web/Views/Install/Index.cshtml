@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "";
+}
+
+<div class="row">
+    <div class="six columns">
+        <p>Are you sure you want to install dummy data? The existing data will be removed.</p>
+        @using (Html.BeginForm("Index", "Install", FormMethod.Post)) 
+        {
+            @Html.AntiForgeryToken()
+            <ul>
+                <li class="field">
+                    <label class="inline" for="theme">Enter the password to reset</label>
+                    <input class="narrow input" id="theme" name="theme" type="text" placeholder="Enter Theme" />
+                </li>
+                <li class="append field">
+                    <label class="inline" for="password">Enter the password to reset</label>
+                    <input class="narrow password input" id="password" name="password" type="password" placeholder="Enter Password" />
+                    <div class="medium primary btn">
+                        <button type="submit">Install</button>
+                    </div>
+                </li>
+            </ul>
+        }
+    </div>
+</div>

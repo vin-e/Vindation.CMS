@@ -1,0 +1,84 @@
+﻿@model Vin.Sample.Web.Models.EventViewModel
+
+@if (!string.IsNullOrEmpty(Model.Address) && !string.IsNullOrEmpty(Model.City) && !string.IsNullOrEmpty(Model.State) && !string.IsNullOrEmpty(Model.ZipCode))
+{
+    <div id="map-canvas" class="carousel"></div>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript">
+        var myLatlng;
+        var map;
+        var marker;
+        var address = '@Model.Address, @Model.City, @Model.State, @Model.ZipCode';
+
+        function initialize() {
+            if (address != '') {
+                geocoder = new google.maps.Geocoder();
+                geocoder.geocode({ 'address': address }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        myLatlng = results[0].geometry.location;
+
+                        var mapOptions = {
+                            zoom: 13,
+                            center: myLatlng,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP,
+                            scrollwheel: false,
+                            draggable: false
+                        };
+                        map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+                        var contentString = '<p style="line-height: 20px;"><strong>@Model.Name</strong></p><p>' + address + '</p>';
+
+                        var infowindow = new google.maps.InfoWindow({
+                            content: contentString
+                        });
+
+                        marker = new google.maps.Marker({
+                            position: myLatlng,
+                            map: map,
+                            title: 'Marker'
+                        });
+
+                        google.maps.event.addListener(marker, 'click', function () {
+                            infowindow.open(map, marker);
+                        });
+                    } else {
+                        $("#map-canvas").fadeOut();
+                    }
+                });
+            }
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+}
+
+<div class="container container-int">
+    <br />
+    @{Html.RenderAction("RenderShareBar", "Cms");}
+
+    <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li><a href="/events">Events</a></li>
+        <li class="active">@Model.Name</li>
+    </ol>
+    
+
+    <div class="row">
+        <div class="col-sm-8">
+
+            <div class="post">
+                <h1 class="post-title"><a href="blog-post.html">@Model.Name</a></h1>
+                <p>@Model.Details</p>
+            </div><!-- /.event -->
+            <div class="clearfix"></div>
+
+        </div>
+        <div class="col-sm-4">
+            <h3>Address</h3>
+            <p>
+                <i class="fa fa-map-marker"></i> @Model.Address, @Model.City, @Model.State @Model.ZipCode
+            </p>
+            <p><i class="fa fa-clock-o"></i> @Model.StartDate.ToString("f") - @Model.EndDate.ToString("f")</p>
+        </div>
+
+    </div><!-- /.row -->
+</div><!-- /.container -->

@@ -1,0 +1,19 @@
+﻿{
+    "PreviewImageUrl": "placeholder.jpg",
+    "PreviewText": "Default Responsive",
+    "ThemeName": "Default",
+    "ThemeTitle": "Default Theme",
+    "Css": [
+        "css/bootstrap.css",
+		"css/font-awesome.min.css",
+        "css/main.css"
+    ],
+    "Javascript": [
+        "js/jquery-1.10.2.js",
+        "js/bootstrap.js",
+        "js/site.js"
+    ],
+    "AvailableToTenants": [
+        "*"
+    ]
+}

@@ -1,0 +1,22 @@
+﻿{
+    "PreviewImageUrl": "preview.png",
+    "PreviewText": "Responsive Design",
+    "ThemeName": "Banzhow-Blue",
+    "ThemeTitle": "Banzhow Theme",
+    "Css": [
+        "css/bootstrap.css",
+		"css/font-awesome.min.css",
+		"css/style.css",
+		"css/colorTheme/blue.css",
+        "css/main.css"		
+    ],
+    "Javascript": [
+        "js/jquery-1.10.2.js",
+        "js/bootstrap.js",
+        "js/plugins.js",
+        "js/banzhow.js"
+    ],
+    "AvailableToTenants": [
+        "*"
+    ]
+}

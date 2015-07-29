@@ -1,0 +1,978 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C3668DD3-886D-4340-B4E4-85B44172F67A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Vin.Sample.Web</RootNamespace>
+    <AssemblyName>Vin.Sample.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <WebGreaseLibPath>..\..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac">
+      <HintPath>..\..\packages\Autofac.3.3.1\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\..\packages\Autofac.Mvc5.3.2.1\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc.Owin">
+      <HintPath>..\..\packages\Autofac.Mvc5.Owin.3.0.0-alpha3\lib\net45\Autofac.Integration.Mvc.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Owin">
+      <HintPath>..\..\packages\Autofac.Owin.3.0.0-alpha3\lib\net45\Autofac.Integration.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi">
+      <HintPath>..\..\packages\Autofac.WebApi2.3.2.1\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi.Owin">
+      <HintPath>..\..\packages\Autofac.WebApi2.Owin.3.0.0-alpha3\lib\net45\Autofac.Integration.WebApi.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.1.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.1.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.1.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.1.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.1.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\img\icons\actualsize.png" />
+    <Content Include="Assets\img\icons\anchor.png" />
+    <Content Include="Assets\img\icons\arrowleft.png" />
+    <Content Include="Assets\img\icons\arrowright.png" />
+    <Content Include="Assets\img\icons\bag.png" />
+    <Content Include="Assets\img\icons\basket.png" />
+    <Content Include="Assets\img\icons\basketfull.png" />
+    <Content Include="Assets\img\icons\beaker.png" />
+    <Content Include="Assets\img\icons\bell.png" />
+    <Content Include="Assets\img\icons\bolt.png" />
+    <Content Include="Assets\img\icons\book.png" />
+    <Content Include="Assets\img\icons\briefcase.png" />
+    <Content Include="Assets\img\icons\bubbles.png" />
+    <Content Include="Assets\img\icons\bulb.png" />
+    <Content Include="Assets\img\icons\calculator.png" />
+    <Content Include="Assets\img\icons\calendar.png" />
+    <Content Include="Assets\img\icons\callin.png" />
+    <Content Include="Assets\img\icons\callout.png" />
+    <Content Include="Assets\img\icons\camera.png" />
+    <Content Include="Assets\img\icons\card.png" />
+    <Content Include="Assets\img\icons\charts.png" />
+    <Content Include="Assets\img\icons\clock.png" />
+    <Content Include="Assets\img\icons\cog.png" />
+    <Content Include="Assets\img\icons\comment.png" />
+    <Content Include="Assets\img\icons\compass.png" />
+    <Content Include="Assets\img\icons\crop.png" />
+    <Content Include="Assets\img\icons\cross.png" />
+    <Content Include="Assets\img\icons\cup.png" />
+    <Content Include="Assets\img\icons\cursor.png" />
+    <Content Include="Assets\img\icons\dashboard.png" />
+    <Content Include="Assets\img\icons\delete.png" />
+    <Content Include="Assets\img\icons\desktop.png" />
+    <Content Include="Assets\img\icons\diamond.png" />
+    <Content Include="Assets\img\icons\direction.png" />
+    <Content Include="Assets\img\icons\directions.png" />
+    <Content Include="Assets\img\icons\disc.png" />
+    <Content Include="Assets\img\icons\dislike.png" />
+    <Content Include="Assets\img\icons\documents.png" />
+    <Content Include="Assets\img\icons\download.png" />
+    <Content Include="Assets\img\icons\drawer.png" />
+    <Content Include="Assets\img\icons\dribble.png" />
+    <Content Include="Assets\img\icons\drop.png" />
+    <Content Include="Assets\img\icons\dropbox.png" />
+    <Content Include="Assets\img\icons\earphones.png" />
+    <Content Include="Assets\img\icons\earphones2.png" />
+    <Content Include="Assets\img\icons\end.png" />
+    <Content Include="Assets\img\icons\endcall.png" />
+    <Content Include="Assets\img\icons\equalizer.png" />
+    <Content Include="Assets\img\icons\eye.png" />
+    <Content Include="Assets\img\icons\facebook.png" />
+    <Content Include="Assets\img\icons\feed.png" />
+    <Content Include="Assets\img\icons\female.png" />
+    <Content Include="Assets\img\icons\film.png" />
+    <Content Include="Assets\img\icons\flag.png" />
+    <Content Include="Assets\img\icons\flame.png" />
+    <Content Include="Assets\img\icons\folder.png" />
+    <Content Include="Assets\img\icons\folder2.png" />
+    <Content Include="Assets\img\icons\forward.png" />
+    <Content Include="Assets\img\icons\frame.png" />
+    <Content Include="Assets\img\icons\fullscreen.png" />
+    <Content Include="Assets\img\icons\gamepad.png" />
+    <Content Include="Assets\img\icons\ghost.png" />
+    <Content Include="Assets\img\icons\glasses.png" />
+    <Content Include="Assets\img\icons\globe.png" />
+    <Content Include="Assets\img\icons\globe2.png" />
+    <Content Include="Assets\img\icons\graph.png" />
+    <Content Include="Assets\img\icons\grid.png" />
+    <Content Include="Assets\img\icons\handbag.png" />
+    <Content Include="Assets\img\icons\hat.png" />
+    <Content Include="Assets\img\icons\heart.png" />
+    <Content Include="Assets\img\icons\help.png" />
+    <Content Include="Assets\img\icons\home.png" />
+    <Content Include="Assets\img\icons\info.png" />
+    <Content Include="Assets\img\icons\key.png" />
+    <Content Include="Assets\img\icons\layers.png" />
+    <Content Include="Assets\img\icons\left.png" />
+    <Content Include="Assets\img\icons\like.png" />
+    <Content Include="Assets\img\icons\link.png" />
+    <Content Include="Assets\img\icons\list.png" />
+    <Content Include="Assets\img\icons\lockclosed.png" />
+    <Content Include="Assets\img\icons\lockopen.png" />
+    <Content Include="Assets\img\icons\login.png" />
+    <Content Include="Assets\img\icons\logout.png" />
+    <Content Include="Assets\img\icons\loop.png" />
+    <Content Include="Assets\img\icons\magnet.png" />
+    <Content Include="Assets\img\icons\mail.png" />
+    <Content Include="Assets\img\icons\mailopen.png" />
+    <Content Include="Assets\img\icons\mailopened.png" />
+    <Content Include="Assets\img\icons\male.png" />
+    <Content Include="Assets\img\icons\man.png" />
+    <Content Include="Assets\img\icons\map.png" />
+    <Content Include="Assets\img\icons\medal.png" />
+    <Content Include="Assets\img\icons\microphone.png" />
+    <Content Include="Assets\img\icons\mouse.png" />
+    <Content Include="Assets\img\icons\move.png" />
+    <Content Include="Assets\img\icons\musictone.png" />
+    <Content Include="Assets\img\icons\musictone2.png" />
+    <Content Include="Assets\img\icons\mustache.png" />
+    <Content Include="Assets\img\icons\note.png" />
+    <Content Include="Assets\img\icons\off.png" />
+    <Content Include="Assets\img\icons\openbook.png" />
+    <Content Include="Assets\img\icons\pages.png" />
+    <Content Include="Assets\img\icons\paperclip.png" />
+    <Content Include="Assets\img\icons\paperplane.png" />
+    <Content Include="Assets\img\icons\pause.png" />
+    <Content Include="Assets\img\icons\pencil.png" />
+    <Content Include="Assets\img\icons\phone.png" />
+    <Content Include="Assets\img\icons\picture.png" />
+    <Content Include="Assets\img\icons\piechart.png" />
+    <Content Include="Assets\img\icons\pin.png" />
+    <Content Include="Assets\img\icons\plane.png" />
+    <Content Include="Assets\img\icons\play.png" />
+    <Content Include="Assets\img\icons\playlist.png" />
+    <Content Include="Assets\img\icons\plus.png" />
+    <Content Include="Assets\img\icons\pointer.png" />
+    <Content Include="Assets\img\icons\present.png" />
+    <Content Include="Assets\img\icons\printer.png" />
+    <Content Include="Assets\img\icons\puzzle.png" />
+    <Content Include="Assets\img\icons\question.png" />
+    <Content Include="Assets\img\icons\refresh.png" />
+    <Content Include="Assets\img\icons\reload.png" />
+    <Content Include="Assets\img\icons\rewind.png" />
+    <Content Include="Assets\img\icons\right.png" />
+    <Content Include="Assets\img\icons\rocket.png" />
+    <Content Include="Assets\img\icons\search.png" />
+    <Content Include="Assets\img\icons\share.png" />
+    <Content Include="Assets\img\icons\share2.png" />
+    <Content Include="Assets\img\icons\sheild.png" />
+    <Content Include="Assets\img\icons\shuffle.png" />
+    <Content Include="Assets\img\icons\smile.png" />
+    <Content Include="Assets\img\icons\speach.png" />
+    <Content Include="Assets\img\icons\star.png" />
+    <Content Include="Assets\img\icons\start.png" />
+    <Content Include="Assets\img\icons\tablet.png" />
+    <Content Include="Assets\img\icons\tag.png" />
+    <Content Include="Assets\img\icons\target.png" />
+    <Content Include="Assets\img\icons\tick.png" />
+    <Content Include="Assets\img\icons\timer.png" />
+    <Content Include="Assets\img\icons\trash.png" />
+    <Content Include="Assets\img\icons\trophy.png" />
+    <Content Include="Assets\img\icons\tumblr.png" />
+    <Content Include="Assets\img\icons\twitter.png" />
+    <Content Include="Assets\img\icons\umbrella.png" />
+    <Content Include="Assets\img\icons\upload.png" />
+    <Content Include="Assets\img\icons\useradd.png" />
+    <Content Include="Assets\img\icons\usercross.png" />
+    <Content Include="Assets\img\icons\users.png" />
+    <Content Include="Assets\img\icons\usertick.png" />
+    <Content Include="Assets\img\icons\vector.png" />
+    <Content Include="Assets\img\icons\video.png" />
+    <Content Include="Assets\img\icons\volume.png" />
+    <Content Include="Assets\img\icons\volumeloud.png" />
+    <Content Include="Assets\img\icons\volumeoff.png" />
+    <Content Include="Assets\img\icons\wallet.png" />
+    <Content Include="Assets\img\icons\wand.png" />
+    <Content Include="Assets\img\icons\woman.png" />
+    <Content Include="Assets\img\icons\wrench.png" />
+    <Content Include="Assets\img\icons\youtube.png" />
+    <Content Include="Assets\img\icons\zoomin.png" />
+    <Content Include="Assets\img\icons\zoomout.png" />
+    <Content Include="Assets\img\swipe.png" />
+    <Content Include="Content\admin\bootstrap-datetimepicker.css" />
+    <Content Include="Content\admin\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\admin\bootstrap.css" />
+    <Content Include="Content\admin\bootstrap.min.css" />
+    <Content Include="Content\admin\iCheck\all.css" />
+    <Content Include="Content\admin\iCheck\square\aero%402x.png" />
+    <Content Include="Content\admin\iCheck\square\aero.css" />
+    <Content Include="Content\admin\iCheck\square\aero.png" />
+    <Content Include="Content\admin\iCheck\square\blue%402x.png" />
+    <Content Include="Content\admin\iCheck\square\blue.css" />
+    <Content Include="Content\admin\iCheck\square\blue.png" />
+    <Content Include="Content\admin\iCheck\square\green%402x.png" />
+    <Content Include="Content\admin\iCheck\square\green.css" />
+    <Content Include="Content\admin\iCheck\square\green.png" />
+    <Content Include="Content\admin\iCheck\square\grey%402x.png" />
+    <Content Include="Content\admin\iCheck\square\grey.css" />
+    <Content Include="Content\admin\iCheck\square\grey.png" />
+    <Content Include="Content\admin\iCheck\square\orange%402x.png" />
+    <Content Include="Content\admin\iCheck\square\orange.css" />
+    <Content Include="Content\admin\iCheck\square\orange.png" />
+    <Content Include="Content\admin\iCheck\square\pink%402x.png" />
+    <Content Include="Content\admin\iCheck\square\pink.css" />
+    <Content Include="Content\admin\iCheck\square\pink.png" />
+    <Content Include="Content\admin\iCheck\square\purple%402x.png" />
+    <Content Include="Content\admin\iCheck\square\purple.css" />
+    <Content Include="Content\admin\iCheck\square\purple.png" />
+    <Content Include="Content\admin\iCheck\square\red%402x.png" />
+    <Content Include="Content\admin\iCheck\square\red.css" />
+    <Content Include="Content\admin\iCheck\square\red.png" />
+    <Content Include="Content\admin\iCheck\square\square%402x.png" />
+    <Content Include="Content\admin\iCheck\square\square.css" />
+    <Content Include="Content\admin\iCheck\square\square.png" />
+    <Content Include="Content\admin\iCheck\square\yellow%402x.png" />
+    <Content Include="Content\admin\iCheck\square\yellow.css" />
+    <Content Include="Content\admin\iCheck\square\yellow.png" />
+    <Content Include="Content\admin\iCheck\square\_all.css" />
+    <Content Include="Content\admin\leftmenu.css" />
+    <Content Include="Content\admin\messenger-spinner.css" />
+    <Content Include="Content\admin\messenger-theme-ice.css" />
+    <Content Include="Content\admin\messenger.css" />
+    <Content Include="Content\admin\styles.css" />
+    <Content Include="Content\body.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Settings\CallToAction.cshtml" />
+    <Content Include="Areas\Admin\Views\Settings\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Settings\Company.cshtml" />
+    <Content Include="Areas\Admin\Views\Settings\Site.cshtml" />
+    <Content Include="Areas\Admin\Views\Settings\Social.cshtml" />
+    <Content Include="Areas\Admin\Views\Posts\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Posts\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Posts\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Events\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Events\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Events\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Marketing\Newsletter.cshtml" />
+    <Content Include="Areas\Admin\Views\Marketing\Leads.cshtml" />
+    <Content Include="Scripts\admin\jquery.icheck.js" />
+    <Content Include="Scripts\admin\jquery.icheck.min.js" />
+    <Content Include="Scripts\admin\moment.min.js" />
+    <Content Include="Areas\Admin\Views\Settings\Theme.cshtml" />
+    <Content Include="Scripts\admin\tinymce\langs\readme.md" />
+    <Content Include="Scripts\admin\tinymce\skins\lightgray\fonts\icomoon-small.eot" />
+    <Content Include="Scripts\admin\tinymce\skins\lightgray\fonts\icomoon-small.ttf" />
+    <Content Include="Scripts\admin\tinymce\skins\lightgray\fonts\icomoon-small.woff" />
+    <Content Include="Scripts\admin\tinymce\skins\lightgray\fonts\icomoon.eot" />
+    <Content Include="Scripts\admin\tinymce\skins\lightgray\fonts\icomoon.ttf" />
+    <Content Include="Scripts\admin\tinymce\skins\lightgray\fonts\icomoon.woff" />
+    <Content Include="Scripts\admin\tinymce\skins\lightgray\fonts\readme.md" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\admin\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\admin\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\admin\bootstrap.js" />
+    <Content Include="Scripts\admin\bootstrap.min.js" />
+    <Content Include="Scripts\admin\html5shiv.js" />
+    <Content Include="Scripts\admin\leftmenu.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.bg.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.ca.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.cs.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.da.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.de.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.el.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.es.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.fi.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.fr.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.he.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.hr.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.hu.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.id.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.is.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.it.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.ja.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.kr.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.lt.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.lv.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.ms.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.nb.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.nl.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.pl.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.pt-BR.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.pt.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.ro.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.rs-latin.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.rs.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.ru.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.sk.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.sl.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.sv.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.sw.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.th.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.tr.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.ua.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.uk.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.zh-CN.js" />
+    <Content Include="Scripts\admin\locales\bootstrap-datetimepicker.zh-TW.js" />
+    <Content Include="Scripts\admin\messenger.js" />
+    <Content Include="Scripts\admin\messenger.min.js" />
+    <Content Include="Scripts\admin\respond.min.js" />
+    <Content Include="Scripts\admin\script.js" />
+    <Content Include="Scripts\admin\theme.js" />
+    <Content Include="Scripts\admin\tinymce\tinymce.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="Scripts\admin\tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="Scripts\admin\tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="Scripts\admin\tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Scripts\admin\tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="Scripts\admin\tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="Scripts\admin\tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="Scripts\admin\tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="Scripts\admin\tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="Scripts\admin\tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="Scripts\admin\tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="Scripts\admin\tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="Scripts\admin\tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="Scripts\admin\tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="Scripts\admin\tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="Scripts\admin\tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="Scripts\admin\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\example\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\example_dependency\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\layer\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\media\moxieplayer.swf" />
+    <Content Include="Scripts\admin\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="Scripts\admin\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="Scripts\admin\tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="Scripts\admin\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="Scripts\admin\tinymce\skins\lightgray\fonts\icomoon-small.svg" />
+    <Content Include="Scripts\admin\tinymce\skins\lightgray\fonts\icomoon.svg" />
+    <Content Include="Scripts\admin\tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="Scripts\admin\tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="Scripts\admin\tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="Scripts\admin\tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="Scripts\admin\tinymce\skins\lightgray\img\wline.gif" />
+    <Content Include="Scripts\admin\tinymce\skins\lightgray\skin.ie7.min.css" />
+    <Content Include="Scripts\admin\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="Scripts\admin\tinymce\themes\modern\theme.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-2.1.0.js" />
+    <Content Include="Scripts\jquery-2.1.0.min.js" />
+    <Content Include="Scripts\jquery-2.1.0.min.map" />
+    <None Include="Scripts\jquery-2.1.0-vsdoc.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Themes\Banzhow-Blue\preview.png" />
+    <Content Include="Themes\Banzhow-Blue\css\bootstrap-ie7.css" />
+    <Content Include="Themes\Banzhow-Blue\css\bootstrap.css" />
+    <Content Include="Themes\Banzhow-Blue\css\colorTheme\blue.css" />
+    <Content Include="Themes\Banzhow-Blue\css\colorTheme\orange.css" />
+    <Content Include="Themes\Banzhow-Blue\css\colorTheme\red.css" />
+    <Content Include="Themes\Banzhow-Blue\css\colorTheme\violet.css" />
+    <Content Include="Themes\Banzhow-Blue\css\font-awesome-ie7.css" />
+    <Content Include="Themes\Banzhow-Blue\css\font-awesome.min.css" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\font-awesome\fontawesome-webfont.svg" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-bold-webfont.svg" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-bolditalic-webfont.svg" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-italic-webfont.svg" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-light-webfont.svg" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-lightitalic-webfont.svg" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-regular-webfont.svg" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\pacifico\pacifico-webfont.svg" />
+    <Content Include="Themes\Banzhow-Blue\css\ie7.css" />
+    <Content Include="Themes\Banzhow-Blue\css\ie8.css" />
+    <Content Include="Themes\Banzhow-Blue\css\main.css" />
+    <Content Include="Themes\Banzhow-Blue\css\style.css" />
+    <Content Include="Themes\Banzhow-Blue\js\banzhow.js" />
+    <Content Include="Themes\Banzhow-Blue\js\bootstrap.js" />
+    <Content Include="Themes\Banzhow-Blue\js\jquery-1.10.2.js" />
+    <Content Include="Themes\Banzhow-Blue\js\plugins.js" />
+    <Content Include="Themes\Banzhow-Green\preview.png" />
+    <Content Include="Themes\Banzhow-Green\css\bootstrap-ie7.css" />
+    <Content Include="Themes\Banzhow-Green\css\bootstrap.css" />
+    <Content Include="Themes\Banzhow-Green\css\colorTheme\blue.css" />
+    <Content Include="Themes\Banzhow-Green\css\colorTheme\orange.css" />
+    <Content Include="Themes\Banzhow-Green\css\colorTheme\red.css" />
+    <Content Include="Themes\Banzhow-Green\css\colorTheme\violet.css" />
+    <Content Include="Themes\Banzhow-Green\css\font-awesome-ie7.css" />
+    <Content Include="Themes\Banzhow-Green\css\font-awesome.min.css" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\font-awesome\fontawesome-webfont.svg" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-bold-webfont.svg" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-bolditalic-webfont.svg" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-italic-webfont.svg" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-light-webfont.svg" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-lightitalic-webfont.svg" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-regular-webfont.svg" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\pacifico\pacifico-webfont.svg" />
+    <Content Include="Themes\Banzhow-Green\css\ie7.css" />
+    <Content Include="Themes\Banzhow-Green\css\ie8.css" />
+    <Content Include="Themes\Banzhow-Green\css\main.css" />
+    <Content Include="Themes\Banzhow-Green\css\style.css" />
+    <Content Include="Themes\Banzhow-Green\js\banzhow.js" />
+    <Content Include="Themes\Banzhow-Green\js\bootstrap.js" />
+    <Content Include="Themes\Banzhow-Green\js\jquery-1.10.2.js" />
+    <Content Include="Themes\Banzhow-Green\js\plugins.js" />
+    <Content Include="Themes\Banzhow-Orange\preview.png" />
+    <Content Include="Themes\Banzhow-Red\preview.png" />
+    <Content Include="Themes\Banzhow-Orange\css\bootstrap-ie7.css" />
+    <Content Include="Themes\Banzhow-Orange\css\bootstrap.css" />
+    <Content Include="Themes\Banzhow-Orange\css\colorTheme\blue.css" />
+    <Content Include="Themes\Banzhow-Orange\css\colorTheme\orange.css" />
+    <Content Include="Themes\Banzhow-Orange\css\colorTheme\red.css" />
+    <Content Include="Themes\Banzhow-Orange\css\colorTheme\violet.css" />
+    <Content Include="Themes\Banzhow-Orange\css\font-awesome-ie7.css" />
+    <Content Include="Themes\Banzhow-Orange\css\font-awesome.min.css" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\font-awesome\fontawesome-webfont.svg" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-bold-webfont.svg" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-bolditalic-webfont.svg" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-italic-webfont.svg" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-light-webfont.svg" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-lightitalic-webfont.svg" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-regular-webfont.svg" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\pacifico\pacifico-webfont.svg" />
+    <Content Include="Themes\Banzhow-Orange\css\ie7.css" />
+    <Content Include="Themes\Banzhow-Orange\css\ie8.css" />
+    <Content Include="Themes\Banzhow-Orange\css\main.css" />
+    <Content Include="Themes\Banzhow-Orange\css\style.css" />
+    <Content Include="Themes\Banzhow-Orange\js\banzhow.js" />
+    <Content Include="Themes\Banzhow-Orange\js\bootstrap.js" />
+    <Content Include="Themes\Banzhow-Orange\js\jquery-1.10.2.js" />
+    <Content Include="Themes\Banzhow-Orange\js\plugins.js" />
+    <Content Include="Themes\Banzhow-Red\css\bootstrap-ie7.css" />
+    <Content Include="Themes\Banzhow-Red\css\bootstrap.css" />
+    <Content Include="Themes\Banzhow-Red\css\colorTheme\blue.css" />
+    <Content Include="Themes\Banzhow-Red\css\colorTheme\orange.css" />
+    <Content Include="Themes\Banzhow-Red\css\colorTheme\red.css" />
+    <Content Include="Themes\Banzhow-Red\css\colorTheme\violet.css" />
+    <Content Include="Themes\Banzhow-Red\css\font-awesome-ie7.css" />
+    <Content Include="Themes\Banzhow-Red\css\font-awesome.min.css" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\font-awesome\fontawesome-webfont.svg" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-bold-webfont.svg" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-bolditalic-webfont.svg" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-italic-webfont.svg" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-light-webfont.svg" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-lightitalic-webfont.svg" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-regular-webfont.svg" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\pacifico\pacifico-webfont.svg" />
+    <Content Include="Themes\Banzhow-Red\css\ie7.css" />
+    <Content Include="Themes\Banzhow-Red\css\ie8.css" />
+    <Content Include="Themes\Banzhow-Red\css\main.css" />
+    <Content Include="Themes\Banzhow-Red\css\style.css" />
+    <Content Include="Themes\Banzhow-Red\js\banzhow.js" />
+    <Content Include="Themes\Banzhow-Red\js\bootstrap.js" />
+    <Content Include="Themes\Banzhow-Red\js\jquery-1.10.2.js" />
+    <Content Include="Themes\Banzhow-Red\js\plugins.js" />
+    <Content Include="Themes\Banzhow-Violet\preview.png" />
+    <Content Include="Themes\Banzhow-Violet\css\bootstrap-ie7.css" />
+    <Content Include="Themes\Banzhow-Violet\css\bootstrap.css" />
+    <Content Include="Themes\Banzhow-Violet\css\colorTheme\blue.css" />
+    <Content Include="Themes\Banzhow-Violet\css\colorTheme\orange.css" />
+    <Content Include="Themes\Banzhow-Violet\css\colorTheme\red.css" />
+    <Content Include="Themes\Banzhow-Violet\css\colorTheme\violet.css" />
+    <Content Include="Themes\Banzhow-Violet\css\font-awesome-ie7.css" />
+    <Content Include="Themes\Banzhow-Violet\css\font-awesome.min.css" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\font-awesome\fontawesome-webfont.svg" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-bold-webfont.svg" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-bolditalic-webfont.svg" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-italic-webfont.svg" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-light-webfont.svg" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-lightitalic-webfont.svg" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-regular-webfont.svg" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\pacifico\pacifico-webfont.svg" />
+    <Content Include="Themes\Banzhow-Violet\css\ie7.css" />
+    <Content Include="Themes\Banzhow-Violet\css\ie8.css" />
+    <Content Include="Themes\Banzhow-Violet\css\main.css" />
+    <Content Include="Themes\Banzhow-Violet\css\style.css" />
+    <Content Include="Themes\Banzhow-Violet\js\banzhow.js" />
+    <Content Include="Themes\Banzhow-Violet\js\bootstrap.js" />
+    <Content Include="Themes\Banzhow-Violet\js\jquery-1.10.2.js" />
+    <Content Include="Themes\Banzhow-Violet\js\plugins.js" />
+    <Content Include="Themes\Default\css\bootstrap-ie7.css" />
+    <Content Include="Themes\Default\css\bootstrap.css" />
+    <Content Include="Themes\Default\css\font-awesome-ie7.css" />
+    <Content Include="Themes\Default\css\font-awesome.min.css" />
+    <Content Include="Themes\Default\css\fonts\font-awesome\fontawesome-webfont.svg" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-bold-webfont.svg" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-bolditalic-webfont.svg" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-italic-webfont.svg" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-light-webfont.svg" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-lightitalic-webfont.svg" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-regular-webfont.svg" />
+    <Content Include="Themes\Default\css\fonts\pacifico\pacifico-webfont.svg" />
+    <Content Include="Themes\Default\css\ie7.css" />
+    <Content Include="Themes\Default\css\ie8.css" />
+    <Content Include="Themes\Default\css\main.css" />
+    <Content Include="Themes\Default\js\bootstrap.js" />
+    <Content Include="Themes\Default\js\jquery-1.10.2.js" />
+    <Content Include="Themes\Default\js\site.js" />
+    <Content Include="Themes\Default\placeholder.jpg" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\EventsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MarketingController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PagesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PostsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SettingsController.cs" />
+    <Compile Include="Areas\Admin\Models\EventDataViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\LeadsDataViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\NewsletterDataViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\PageDataViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\SiteSettingsViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\ThemeSettingsViewModel.cs" />
+    <Compile Include="Controllers\CmsController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
+    <Compile Include="Controllers\GeneratorController.cs" />
+    <Compile Include="Controllers\InstallController.cs" />
+    <Compile Include="Controllers\MarketingController.cs" />
+    <Compile Include="Controllers\PageController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventsViewModel.cs" />
+    <Compile Include="Models\SettingsViewModel.cs" />
+    <Compile Include="Models\MenuItemViewModel.cs" />
+    <Compile Include="Models\PageViewModel.cs" />
+    <Compile Include="Models\PostsViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Utilities\UI.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Page\Index.cshtml" />
+    <Content Include="Views\Post\Index.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Post\SinglePost.cshtml" />
+    <Content Include="Views\Install\Index.cshtml" />
+    <Content Include="Views\Install\Completed.cshtml" />
+    <Content Include="Views\Error\UnknownTenant.cshtml" />
+    <Content Include="Views\Error\NotYetConfigured.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Events\SingleEvent.cshtml" />
+    <Content Include="Views\Cms\RenderMenu.cshtml" />
+    <Content Include="Themes\Default\css\fonts\font-awesome\fontawesome-webfont.eot" />
+    <Content Include="Themes\Default\css\fonts\font-awesome\fontawesome-webfont.ttf" />
+    <Content Include="Themes\Default\css\fonts\font-awesome\fontawesome-webfont.woff" />
+    <Content Include="Themes\Default\css\fonts\font-awesome\FontAwesome.otf" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-bold-webfont.eot" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-bold-webfont.ttf" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-bold-webfont.woff" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-bolditalic-webfont.eot" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-bolditalic-webfont.ttf" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-bolditalic-webfont.woff" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-italic-webfont.eot" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-italic-webfont.ttf" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-italic-webfont.woff" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-light-webfont.eot" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-light-webfont.ttf" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-light-webfont.woff" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-lightitalic-webfont.eot" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-lightitalic-webfont.ttf" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-lightitalic-webfont.woff" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-regular-webfont.eot" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-regular-webfont.ttf" />
+    <Content Include="Themes\Default\css\fonts\opensans\opensans-regular-webfont.woff" />
+    <Content Include="Themes\Default\css\fonts\pacifico\pacifico-webfont.eot" />
+    <Content Include="Themes\Default\css\fonts\pacifico\pacifico-webfont.ttf" />
+    <Content Include="Themes\Default\css\fonts\pacifico\pacifico-webfont.woff" />
+    <Content Include="Themes\Default\theme.json" />
+    <Content Include="Views\Cms\RenderFooter.cshtml" />
+    <Content Include="Views\Cms\RenderName.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Page\Home.cshtml" />
+    <Content Include="Views\Contact\ThankYou.cshtml" />
+    <Content Include="Views\Cms\RenderShareBar.cshtml" />
+    <Content Include="Views\Error\Maintenance.cshtml" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\font-awesome\fontawesome-webfont.eot" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\font-awesome\fontawesome-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\font-awesome\fontawesome-webfont.woff" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\font-awesome\FontAwesome.otf" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-bold-webfont.eot" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-bold-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-bold-webfont.woff" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-bolditalic-webfont.eot" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-bolditalic-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-bolditalic-webfont.woff" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-italic-webfont.eot" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-italic-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-italic-webfont.woff" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-light-webfont.eot" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-light-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-light-webfont.woff" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-lightitalic-webfont.eot" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-lightitalic-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-lightitalic-webfont.woff" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-regular-webfont.eot" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-regular-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\opensans\opensans-regular-webfont.woff" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\pacifico\pacifico-webfont.eot" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\pacifico\pacifico-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Blue\css\fonts\pacifico\pacifico-webfont.woff" />
+    <Content Include="Themes\Banzhow-Blue\theme.json" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\font-awesome\fontawesome-webfont.eot" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\font-awesome\fontawesome-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\font-awesome\fontawesome-webfont.woff" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\font-awesome\FontAwesome.otf" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-bold-webfont.eot" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-bold-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-bold-webfont.woff" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-bolditalic-webfont.eot" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-bolditalic-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-bolditalic-webfont.woff" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-italic-webfont.eot" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-italic-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-italic-webfont.woff" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-light-webfont.eot" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-light-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-light-webfont.woff" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-lightitalic-webfont.eot" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-lightitalic-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-lightitalic-webfont.woff" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-regular-webfont.eot" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-regular-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\opensans\opensans-regular-webfont.woff" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\pacifico\pacifico-webfont.eot" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\pacifico\pacifico-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Green\css\fonts\pacifico\pacifico-webfont.woff" />
+    <Content Include="Themes\Banzhow-Green\theme.json" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\font-awesome\fontawesome-webfont.eot" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\font-awesome\fontawesome-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\font-awesome\fontawesome-webfont.woff" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\font-awesome\FontAwesome.otf" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-bold-webfont.eot" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-bold-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-bold-webfont.woff" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-bolditalic-webfont.eot" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-bolditalic-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-bolditalic-webfont.woff" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-italic-webfont.eot" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-italic-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-italic-webfont.woff" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-light-webfont.eot" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-light-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-light-webfont.woff" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-lightitalic-webfont.eot" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-lightitalic-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-lightitalic-webfont.woff" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-regular-webfont.eot" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-regular-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\opensans\opensans-regular-webfont.woff" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\pacifico\pacifico-webfont.eot" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\pacifico\pacifico-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Orange\css\fonts\pacifico\pacifico-webfont.woff" />
+    <Content Include="Themes\Banzhow-Orange\theme.json" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\font-awesome\fontawesome-webfont.eot" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\font-awesome\fontawesome-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\font-awesome\fontawesome-webfont.woff" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\font-awesome\FontAwesome.otf" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-bold-webfont.eot" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-bold-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-bold-webfont.woff" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-bolditalic-webfont.eot" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-bolditalic-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-bolditalic-webfont.woff" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-italic-webfont.eot" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-italic-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-italic-webfont.woff" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-light-webfont.eot" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-light-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-light-webfont.woff" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-lightitalic-webfont.eot" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-lightitalic-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-lightitalic-webfont.woff" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-regular-webfont.eot" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-regular-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\opensans\opensans-regular-webfont.woff" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\pacifico\pacifico-webfont.eot" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\pacifico\pacifico-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Red\css\fonts\pacifico\pacifico-webfont.woff" />
+    <Content Include="Themes\Banzhow-Red\theme.json" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\font-awesome\fontawesome-webfont.eot" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\font-awesome\fontawesome-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\font-awesome\fontawesome-webfont.woff" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\font-awesome\FontAwesome.otf" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-bold-webfont.eot" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-bold-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-bold-webfont.woff" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-bolditalic-webfont.eot" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-bolditalic-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-bolditalic-webfont.woff" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-italic-webfont.eot" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-italic-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-italic-webfont.woff" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-light-webfont.eot" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-light-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-light-webfont.woff" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-lightitalic-webfont.eot" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-lightitalic-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-lightitalic-webfont.woff" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-regular-webfont.eot" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-regular-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\opensans\opensans-regular-webfont.woff" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\pacifico\pacifico-webfont.eot" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\pacifico\pacifico-webfont.ttf" />
+    <Content Include="Themes\Banzhow-Violet\css\fonts\pacifico\pacifico-webfont.woff" />
+    <Content Include="Themes\Banzhow-Violet\theme.json" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Vin.Core\Vin.Core.csproj">
+      <Project>{15c45f4e-18cd-475b-abe5-85401ecc2786}</Project>
+      <Name>Vin.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vin.Sample.Business\Vin.Sample.Business.csproj">
+      <Project>{77332a04-cd49-4750-864d-28ab6a46ff19}</Project>
+      <Name>Vin.Sample.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vin.Sample.Data\Vin.Sample.Data.csproj">
+      <Project>{0d6d1edb-a3b3-4eb0-9cf5-98b095abe61d}</Project>
+      <Name>Vin.Sample.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:14250/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,26 @@
+﻿@model int?
+
+<div class="section">
+
+    <div class="container">
+
+        <div class="row">
+            @if (Model == 404)
+            {
+                <div class="col-md-12 col-sm-9">
+                    <h2>It seems the page you were looking for doesn’t exist.</h2>
+                    <h3 class="error-404 text-center">@Model</h3>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-12 col-sm-9">
+                    <h2>It seems there was an error. The issue has been logged and we are working on fixing it.</h2>
+                    <h3 class="error-404 text-center">@Model</h3>
+                </div>
+            }
+        </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+</div><!-- /.section -->

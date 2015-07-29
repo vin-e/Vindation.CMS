@@ -1,0 +1,36 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">        
+        @UI.Head()
+        @RenderSection("head", required: false)
+    </head>
+    <body>
+        <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="@Url.Content("~/")">@{Html.RenderAction("RenderName", "Cms");}</a>
+                </div>
+                @{Html.RenderAction("RenderMenu", "Cms");}
+            </div><!-- /.container -->
+        </nav>
+
+        
+
+        @RenderBody()
+
+        @{Html.RenderAction("RenderFooter", "Cms");}
+
+        @Scripts.Render("~/js")
+        @UI.Footer()
+        @RenderSection("Scripts", required: false)
+    </body>
+</html>

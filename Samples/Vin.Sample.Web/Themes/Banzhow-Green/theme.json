@@ -1,0 +1,22 @@
+﻿{
+    "PreviewImageUrl": "preview.png",
+    "PreviewText": "Responsive Design",
+    "ThemeName": "Banzhow-Green",
+    "ThemeTitle": "Banzhow Theme",
+    "Css": [
+        "https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css",
+		"//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css",
+		"css/style.css",
+        "css/main.css"		
+    ],
+    "Javascript": [
+        "//code.jquery.com/jquery-2.1.1.min.js",
+		"//code.jquery.com/jquery-migrate-1.2.1.min.js",
+        "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js",
+        "js/plugins.js",
+        "js/banzhow.js"
+    ],
+    "AvailableToTenants": [
+        "*"
+    ]
+}

@@ -1,0 +1,54 @@
+﻿@model Vin.Sample.Data.Model.Settings.SocialSettings
+@{
+    ViewBag.Title = "Social";
+}
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="well">
+            <div class="header">
+                Call To Action Buttons
+            </div>
+            <form id="settingSave" method="post" class="form-horizontal" role="form" a>
+                <div class="form-group">
+                    <label>Facebook</label>
+                    @Html.TextBoxFor(x => x.Facebook, new { @class = "form-control", placeholder = "Facebook" })
+                </div>
+                <div class="form-group">
+                    <label>Twitter</label>
+                    @Html.TextBoxFor(x => x.Twitter, new { @class = "form-control", placeholder = "Twitter" })
+                </div>
+                <div class="form-group">
+                    <label>Google+</label>
+                    @Html.TextBoxFor(x => x.GooglePlus, new { @class = "form-control", placeholder = "Google+" })
+                </div>
+                <div class="form-group">
+                    <label>YouTube</label>
+                    @Html.TextBoxFor(x => x.YouTube, new { @class = "form-control", placeholder = "YouTube" })
+                </div>
+                <div class="form-group">
+                    <label>LinkedIn</label>
+                    @Html.TextBoxFor(x => x.LinkedIn, new { @class = "form-control", placeholder = "LinkedIn" })
+                </div>
+                <div class="form-group">
+                    <label>Pinterest</label>
+                    @Html.TextBoxFor(x => x.Pinterest, new { @class = "form-control", placeholder = "Pinterest" })
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <button class="btn btn-default btn-block" type="reset"><i class="fa fa-times"></i> Cancel</button>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-check"></i> Save</button>
+                </div>
+            </form>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        settingsInit();
+    </script>
+}
